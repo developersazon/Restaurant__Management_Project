@@ -102,22 +102,28 @@
                                         <td><strong>Name</strong></td>
                                         <td><strong>Email</strong></td>
                                         <td><strong>Users Type</strong></td>
+                                        <td><strong>History</strong></td>
                                         <td><strong>Action</strong></td>
-                                        <td><strong>History Time</strong></td>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($data as $usersData)
                                     <tr>
-                                        <th>{{ $usersData->id }}</th>
-                                        <th>{{ $usersData->name }}</th>
-                                        <th>{{ $usersData->email }}</th>
-                                        <th>{{ $usersData->usertype }}</th>
-                                        <th>{{ $usersData->created_at }}</th>
-                                        <th>
-                                            <a class="btn btn-danger" href="">Delete</a>
-                                        </th>
-                                    </tr>
+                                        <td>{{ $usersData->id }}</td>
+                                        <td>{{ $usersData->name }}</td>
+                                        <td>{{ $usersData->email }}</td>
+                                        @if ($usersData->usertype == '0')
+                                            <td>User</td>
+                                        @else
+                                            <td>Admin</td>
+                                        @endif
+                                        <td>{{ $usersData->created_at }}</td>
+                                        @if ($usersData->usertype == '0')
+                                            <td><a href="{{ url('/deleteuser', $usersData->id) }}" class="btn btn-danger">Delete</a></td>
+                                        @else
+                                            <td><button class="btn btn-success">Not Allowed</button></td>
+                                        @endif
+                                </tr>
                                     @endforeach
                                 </tbody>
                           </table>

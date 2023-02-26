@@ -6,13 +6,14 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use session;
 
 class AdminController extends Controller
 {
     //
     public function adminUsers(){
 
-        $data = User::all();
+        $data = User::simplepaginate(6);
         return view('admin.users', compact('data'));
     }
 
@@ -25,6 +26,10 @@ class AdminController extends Controller
         }
     }
 
-
+    public function deleteUsers($id){
+        $id = User::find($id);
+        $id->delete();
+        return redirect()->back();
+    }
 
 }

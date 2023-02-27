@@ -23,9 +23,12 @@ Route::get('/', function () {
 Route::get('/home', [HomeController::class, 'index']);
 
 // admin view pages
-Route::get('/users', [AdminController::class, 'adminUsers']);
-Route::get('/deleteuser/{id}', [AdminController::class, 'deleteUsers'])->name('delete.user');
 Route::get('/admin-dashboard', [AdminController::class, 'adminDashboard'])->name('admin.dashboard');
+Route::get('/users', [AdminController::class, 'adminUsers'])->name('admin.users');
+Route::get('/fooditems', [AdminController::class, 'adminfoodItems'])->name('food.items');
+Route::get('/add-food', [AdminController::class, 'adminfoodMenu'])->name('add.food');
+// add new products
+Route::post('/add-food', [AdminController::class, 'admin_add_food_items'])->name('add.food.items');
 
 Route::middleware([
     'auth:sanctum',

@@ -11,12 +11,6 @@ use session;
 class AdminController extends Controller
 {
     //
-    public function adminUsers(){
-
-        $data = User::simplepaginate(6);
-        return view('admin.users', compact('data'));
-    }
-
     public function adminDashboard(){
         $usertype  = Auth::user()->usertype;
         if($usertype == '1'){
@@ -25,6 +19,31 @@ class AdminController extends Controller
           return view('frontend.home');
         }
     }
+
+    public function adminUsers(){
+
+        $data = User::simplepaginate(4);
+        return view('admin.users', compact('data'));
+    }
+
+    public function adminfoodItems(){
+        return view('admin.fooditems');
+    }
+
+    public function adminfoodMenu(){
+        return view('admin.addfood');
+    }
+
+    // public function admin_add_food_items(Request $request){
+    //     // $request->validate([
+    //     //     'title' => 'required',
+    //         'price' => 'required | numeric',
+    //     //     'image' => 'required|mimes:jpeg,png,jpg,gif,svg',
+    //     //     'description' => 'required',
+
+    //     // ]);
+    //     $request->dd();
+    // }
 
     public function deleteUsers($id){
         $id = User::find($id);

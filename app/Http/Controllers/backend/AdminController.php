@@ -34,16 +34,16 @@ class AdminController extends Controller
         return view('admin.addfood');
     }
 
-    // public function admin_add_food_items(Request $request){
-    //     // $request->validate([
-    //     //     'title' => 'required',
-    //         'price' => 'required | numeric',
-    //     //     'image' => 'required|mimes:jpeg,png,jpg,gif,svg',
-    //     //     'description' => 'required',
+    public function admin_add_food_items(Request $request){
+        $request->validate([
+            'title' => 'required',
+            'price' => 'required | numeric',
+            'image' => 'mimes:jpeg,jpg,png,gif|required|max:150',
+            'description' => 'required',
 
-    //     // ]);
-    //     $request->dd();
-    // }
+        ]);
+        
+    }
 
     public function deleteUsers($id){
         $delete_id = User::find($id);

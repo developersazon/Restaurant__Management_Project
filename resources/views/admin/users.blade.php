@@ -137,7 +137,6 @@
           </div>
           {{--  table section end here  --}}
 
-
           </div>
           <!-- content-wrapper ends -->
 

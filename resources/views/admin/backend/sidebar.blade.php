@@ -83,8 +83,8 @@
           </a>
           <div class="collapse" id="auth">
             <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ route('add.food') }}"> Add Food </a></li>
                <li class="nav-item"> <a class="nav-link" href="{{ route('food.items') }}"> All Food Items </a></li>
-              <li class="nav-item"> <a class="nav-link" href="{{ route('add.food') }}"> Add Food </a></li>
             </ul>
           </div>
     </li>

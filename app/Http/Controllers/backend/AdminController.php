@@ -46,9 +46,16 @@ class AdminController extends Controller
     // }
 
     public function deleteUsers($id){
-        $id = User::find($id);
-        $id->delete();
+        $delete_id = User::find($id);
+        $delete_id->delete();
         return redirect()->back();
+    }
+
+
+    // Admin logout form Dashboard
+    public function adminLogout(Request $request){
+        Auth::logout();
+        return redirect('/home');
     }
 
 }

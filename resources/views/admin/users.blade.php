@@ -112,14 +112,17 @@
                                         <td>{{ $usersData->id }}</td>
                                         <td>{{ $usersData->name }}</td>
                                         <td>{{ $usersData->email }}</td>
+                                        {{--  user and admin condition start --}}
                                         @if ($usersData->usertype == '0')
                                             <td>User</td>
                                         @else
                                             <td>Admin</td>
                                         @endif
+                                        {{--  user and admin condition end --}}
                                         <td>{{ $usersData->created_at }}</td>
+
                                         @if ($usersData->usertype == '0')
-                                            <td><a href="{{ url('/deleteuser', $usersData->id) }}" class="btn btn-danger">Delete</a></td>
+                                            <td><a class="btn btn-danger" href="{{ route('delete.users', ['id' => $usersData->id]) }}" onclick="return confirm('Are you sure to delete this User ?')">Delete</a></td>
                                         @else
                                             <td><button class="btn btn-success">Not Allowed</button></td>
                                         @endif

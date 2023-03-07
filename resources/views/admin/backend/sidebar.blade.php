@@ -60,16 +60,16 @@
     <li class="nav-item menu-items">
       <a class="nav-link" href="{{  route('admin.dashboard') }}">
         <span class="menu-icon">
-          <i class="mdi mdi-speedometer"></i>
+          <i class="mdi mdi-view-dashboard"></i>
         </span>
         <span class="menu-title">Dashboard</span>
       </a>
     </li>
     <li class="nav-item menu-items">
         <a class="nav-link" href="{{ route('admin.users') }}">
-          <span class="menu-icon">
-            <i class="mdi mdi-users"></i>
-          </span>
+            <span class="menu-icon">
+                <i class="mdi mdi-account"></i>
+              </span>
           <span class="menu-title">Users</span>
         </a>
       </li>
@@ -83,17 +83,27 @@
           </a>
           <div class="collapse" id="auth">
             <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ route('add.food') }}"> Add Food </a></li>
-               <li class="nav-item"> <a class="nav-link" href="{{ route('food.items') }}"> All Food Items </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('add.food') }}">
+                    <span class="menu-icon">
+                          <i class="mdi mdi-food"></i>
+                    </span>
+                    <span class="menu-title">Add Food</span>
+                    </a></li>
+               <li class="nav-item"> <a class="nav-link" href="{{ route('food.items') }}">
+                    <span class="menu-icon">
+                        <i class="mdi  mdi-format-list-bulleted"></i>
+                    </span>
+                    <span class="menu-title">All Food Items</span>
+               </a></li>
             </ul>
           </div>
     </li>
     <li class="nav-item menu-items">
       <a class="nav-link" href="pages/tables/basic-table.html">
         <span class="menu-icon">
-          <i class="mdi mdi-table-large"></i>
+          <i class="mdi mdi-account-card-details"></i>
         </span>
-        <span class="menu-title">Tables</span>
+        <span class="menu-title">Chefs</span>
       </a>
     </li>
     <li class="nav-item menu-items">

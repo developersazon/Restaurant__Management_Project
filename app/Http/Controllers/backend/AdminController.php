@@ -23,12 +23,13 @@ class AdminController extends Controller
 
     public function adminUsers(){
 
-        $data = User::simplepaginate(4);
-        return view('admin.users', compact('data'));
+        $users_Data = User::simplepaginate(4);
+        return view('admin.users', compact('users_Data'));
     }
 
     public function adminfoodItems(){
-        return view('admin.fooditems');
+        $food_Items = food::all();
+        return view('admin.fooditems', compact('food_Items'));
     }
 
     public function adminfoodMenu(){
@@ -39,7 +40,7 @@ class AdminController extends Controller
         $request->validate([
             'title' => 'required',
             'price' => 'required | numeric',
-            // 'image' => 'mimes:jpeg,jpg,png,gif|required|max:150',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:150',
             'description' => 'required',
 
         ]);
@@ -47,11 +48,14 @@ class AdminController extends Controller
         $food_data = new Food();
         $food_data->title = $request->title;
         $food_data->price = $request->price;
+        $imageName = time(). "restaurant.". $request->file('image')->getClientOriginalExtension();
+        $food_data->image = $request->file('image')->storeAs('uploads'.$imageName);
         $food_data->description = $request->description;
+
         // dd($food_data);
         $food_data->save();
         Session::flash('msg', 'Your Data Send Successfully');
-        return redirect()->back();
+        return redirect('/fooditems');
 
     }
 

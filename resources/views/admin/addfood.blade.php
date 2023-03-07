@@ -16,14 +16,6 @@
                                 <div class="card-header">
                                     <p class="h3">Add New Restaurant Food Items</p><hr>
                                 </div>
-                                @if (Session::has('msg'))
-                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                        <strong>{{ Session::get('msg') }}</strong>
-                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                @endif
                                 <form action="{{ route('add.food.items') }}" method="post" enctype="multipart/form-data">
                                     <!-- 2 column grid layout with text inputs for the first and last names -->
                                     @csrf
@@ -48,7 +40,7 @@
                                        @enderror
                                       </div>
 
-                                      {{--  <div class="col-sm-12 col-md-3">
+                                      <div class="col-sm-12 col-md-3">
                                         <div class="form-outline">
                                             <label class="form-label" for="form3Example2">image</label>
                                           <input type="file" name="image" id="form3Example2" class="form-control" />
@@ -56,7 +48,7 @@
                                         @error('image')
                                            <span class="text-danger">{{ $message }}</span>
                                        @enderror
-                                      </div>  --}}
+                                      </div>
                                     </div>
 
                                     <!-- Message input -->

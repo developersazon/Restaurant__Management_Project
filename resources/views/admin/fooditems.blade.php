@@ -98,24 +98,43 @@
                             <div class="card-header">
                                 <p class="h3">Users Data Table</p>
                             </div>
+                            @if (Session::has('msg'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <strong>{{ Session::get('msg') }}</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        @endif
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
                                         <td><strong>Id</strong></td>
-                                        <td><strong>Name</strong></td>
-                                        <td><strong>Email</strong></td>
-                                        <td><strong>Users Type</strong></td>
+                                        <td><strong>Food Item Title</strong></td>
+                                        <td><strong>Food Image</strong></td>
+                                        <td><strong>Food Price</strong></td>
+                                        <td><strong>Food Description</strong></td>
                                         <td><strong>History</strong></td>
                                         <td><strong>Action</strong></td>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach ($food_Items as $food_Item)
                                     <tr>
-                                        <td>1</td>
-                                        <td>Sazon</td>
-                                        <td>sazon@aamailpay</td>
-                                        <td>hello</td>
+                                        <td>{{ $food_Item->id }}</td>
+                                        <td>{{ $food_Item->title }}</td>
+                                        <td>
+                                            <img src="{{ asset('uploads/' .$food_Item->image) }}" alt="">
+                                        </td>
+                                        <td>{{ $food_Item->price }}</td>
+                                        <td>{{ $food_Item->description }}</td>
+                                        <td>{{ $food_Item->created_at }}</td>
+                                        <td>
+                                             <a class="btn btn-success me-2" href="">Update</a>
+                                             <a class="btn btn-danger" href="">Delete</a>
+                                        </td>
                                    </tr>
+                                    @endforeach
                                 </tbody>
                           </table>
                         </div>

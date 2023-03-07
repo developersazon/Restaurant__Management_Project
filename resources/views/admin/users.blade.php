@@ -110,22 +110,22 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($data as $usersData)
+                                    @foreach ($users_Data as $userData)
                                     <tr>
-                                        <td>{{ $usersData->id }}</td>
-                                        <td>{{ $usersData->name }}</td>
-                                        <td>{{ $usersData->email }}</td>
+                                        <td>{{ $userData->id }}</td>
+                                        <td>{{ $userData->name }}</td>
+                                        <td>{{ $userData->email }}</td>
                                         {{--  user and admin condition start --}}
-                                        @if ($usersData->usertype == '0')
+                                        @if ($userData->usertype == '0')
                                             <td>User</td>
                                         @else
                                             <td>Admin</td>
                                         @endif
                                         {{--  user and admin condition end --}}
-                                        <td>{{ $usersData->created_at }}</td>
+                                        <td>{{ $userData->created_at }}</td>
 
-                                        @if ($usersData->usertype == '0')
-                                            <td><a class="btn btn-danger" href="{{ route('delete.users', ['id' => $usersData->id]) }}" onclick="return confirm('Are you sure to delete this User ?')">Delete</a></td>
+                                        @if ($userData->usertype == '0')
+                                            <td><a class="btn btn-danger" href="{{ route('delete.users', ['id' => $userData->id]) }}" onclick="return confirm('Are you sure to delete this User ?')">Delete</a></td>
                                         @else
                                             <td><button class="btn btn-success">Not Allowed</button></td>
                                         @endif

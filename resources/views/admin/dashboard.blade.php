@@ -1,5 +1,7 @@
 @extends('admin.backend.main')
-
+@push('title')
+    <title>Admin Dashboard</title>
+@endpush
 @section('main-content')
         <!-- partial -->
         <div class="main-panel">

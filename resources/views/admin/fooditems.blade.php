@@ -1,4 +1,7 @@
 @extends('admin.backend.main')
+@push('title')
+    <title>All Food Items</title>
+@endpush
 @section('main-content')
         <!-- partial -->
         <div class="main-panel">

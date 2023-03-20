@@ -22,15 +22,25 @@ Route::get('/', function () {
 
 Route::get('/home', [HomeController::class, 'index']);
 
+
 // admin view pages
 Route::get('/admin-dashboard', [AdminController::class, 'adminDashboard'])->name('admin.dashboard');
-Route::get('/users', [AdminController::class, 'adminUsers'])->name('admin.users');
-Route::get('/fooditems', [AdminController::class, 'adminfoodItems'])->name('food.items');
-Route::get('/add-food', [AdminController::class, 'adminfoodMenu'])->name('add.food');
 Route::get('/home', [AdminController::class, 'adminLogout'])->name('admin.logout');
+
+// Users Routes
+Route::get('/users', [AdminController::class, 'adminUsers'])->name('admin.users');
 Route::get('/delete-users/{id}', [AdminController::class, 'deleteUsers'])->name('delete.users');
-// add new products
-Route::post('/add-food', [AdminController::class, 'admin_add_food_items'])->name('add.food.items');
+
+//add food items
+Route::get('/add-food', [AdminController::class, 'adminfoodMenu'])->name('add.foodItems');
+Route::post('/add-food', [AdminController::class, 'admin_add_food_items'])->name('submit.foodItems');
+
+// all food items
+Route::get('/all-fooditems', [AdminController::class, 'adminfoodItems'])->name('all.foodItems');
+Route::get('/delete-food-items/{id}', [AdminController::class, 'deleteFoodItems'])->name('delete.foodItems');
+Route::get('/edit-fooditems/{id}', [AdminController::class, 'editFoodItems'])->name('edit.foodItems');
+
+
 
 Route::middleware([
     'auth:sanctum',

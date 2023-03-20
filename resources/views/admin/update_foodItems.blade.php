@@ -1,6 +1,6 @@
 @extends('admin.backend.main')
 @push('title')
-    <title>Add Food Items</title>
+    <title>Update Food Items</title>
 @endpush
 @section('main-content')
         <!-- partial -->

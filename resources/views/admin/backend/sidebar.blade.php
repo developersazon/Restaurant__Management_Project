@@ -83,13 +83,13 @@
           </a>
           <div class="collapse" id="auth">
             <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ route('add.food') }}">
+                <li class="nav-item"> <a class="nav-link" href="{{ route('add.foodItems') }}">
                     <span class="menu-icon">
                           <i class="mdi mdi-food"></i>
                     </span>
                     <span class="menu-title">Add Food</span>
                     </a></li>
-               <li class="nav-item"> <a class="nav-link" href="{{ route('food.items') }}">
+               <li class="nav-item"> <a class="nav-link" href="{{ route('all.foodItems') }}">
                     <span class="menu-icon">
                         <i class="mdi  mdi-format-list-bulleted"></i>
                     </span>

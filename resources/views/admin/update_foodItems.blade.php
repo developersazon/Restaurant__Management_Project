@@ -14,16 +14,16 @@
                         <div class="row">
                             <div class="col">
                                 <div class="card-header">
-                                    <p class="h3">Add New Restaurant Food Items</p><hr>
+                                    <p class="h3">Updates Restaurant Food Items</p><hr>
                                 </div>
-                                <form action="{{ route('submit.foodItems') }}" method="post" enctype="multipart/form-data">
+                                <form action="{{ route('update.foodItems', ['id'=>$edit_data->id]) }}" method="post" enctype="multipart/form-data">
                                     <!-- 2 column grid layout with text inputs for the first and last names -->
                                     @csrf
                                     <div class="row mb-4">
                                       <div class="col-sm-12 col-md-6">
                                         <div class="form-outline">
                                             <label class="form-label" for="form3Example1">Title</label>
-                                          <input type="text" name="title" value="{{ old('title') }}" id="form3Example1" class="form-control text-light" placeholder="Enter your title" />
+                                          <input type="text" name="title" value="{{ $edit_data->title }}" id="form3Example1" class="form-control text-light" placeholder="Enter your title" />
                                         </div>
                                         @error('title')
                                         <span class="text-danger">{{ $message }}</span>
@@ -33,7 +33,7 @@
                                       <div class="col col-sm-12 col-md-3">
                                         <div class="form-outline">
                                             <label class="form-label" for="form3Example2">Price</label>
-                                          <input type="text" name="price" value="{{ old('price') }}" id="form3Example2" class="form-control text-light" placeholder="price" />
+                                          <input type="text" name="price" value="{{ $edit_data->price }}" id="form3Example2" class="form-control text-light" placeholder="price" />
                                         </div>
                                         @error('price')
                                         <span class="text-danger">{{ $message }}</span>
@@ -54,7 +54,7 @@
                                     <!-- Message input -->
                                     <div class="form-outline mb-4">
                                         <label class="form-label" for="form6Example7">Description</label>
-                                         <textarea class="form-control text-light" name="description" value="{{ old('description') }}" id="form6Example7" placeholder="Write description about your product..." rows="15"></textarea>
+                                         <textarea class="form-control text-light" name="description" id="form6Example7" placeholder="Write description about your product..." rows="15">{{ $edit_data->description }}</textarea>
                                          @error('description')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
@@ -76,7 +76,6 @@
             </div>
           </div>
           <!-- content-wrapper ends -->
-
 @endsection
 
 

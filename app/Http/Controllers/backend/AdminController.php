@@ -28,8 +28,7 @@ class AdminController extends Controller
     }
 
     public function adminfoodItems(){
-        $food_Items = food::all();
-        // dd($food_Items);
+        $food_Items = Food::all();
         return view('admin.fooditems', compact('food_Items'));
     }
 
@@ -49,25 +48,50 @@ class AdminController extends Controller
         $food_data = new Food();
         $food_data->title = $request->title;
         $food_data->price = $request->price;
-        $imageName = time(). "restaurant.". $request->file('image')->getClientOriginalExtension();
-        $food_data->image=$request->image->move(public_path('images'), $imageName);
-        // $food_data->image = $request->file('image')->move(public_path('images'), $imageName);
+        //
+        $imageName = time(). "restaurant." .$request->file('image')->getClientOriginalExtension();
+        $food_data->image =$imageName;
+        $request->file('image')->move(public_path('images'), $imageName);
+        //
         $food_data->description = $request->description;
 
         // dd($food_data);
         $food_data->save();
         Session::flash('msg', 'Your Data Send Successfully');
-        return redirect('/fooditems');
+        return redirect()->back();
 
     }
 
     // food items view and edit section start here
-    public function editFoodItems(){
-        return view('admin.update_foodItems');
+    public function editFoodItems($id){
+        $edit_data = Food::find($id);
+        return view('admin.update_foodItems', compact('edit_data'));
+
     }
 
-    public function update_FoodItems(Request $request){
+    public function update_FoodItems(Request $request, $id){
+        $request->validate([
+            'title' => 'required',
+            'price' => 'required | numeric',
+            'image' => 'required|image|mimes:jpg,jpeg,png,gif,svg',
+            'description' => 'required',
 
+        ]);
+
+        $food_data = Food::find($id);
+        $food_data->title = $request->title;
+        $food_data->price = $request->price;
+                //
+                $imageName = time(). "restaurant." .$request->file('image')->getClientOriginalExtension();
+                $food_data->image =$imageName;
+                $request->file('image')->move(public_path('images'), $imageName);
+                //
+        $food_data->description = $request->description;
+
+        // dd($food_data);
+        $food_data->save();
+        Session::flash('msg', 'Your Food Menu data is Successfully Updated !');
+        return redirect()->back();
     }
     // food items view and edit section end here
 

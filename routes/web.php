@@ -39,6 +39,7 @@ Route::post('/add-food', [AdminController::class, 'admin_add_food_items'])->name
 Route::get('/all-fooditems', [AdminController::class, 'adminfoodItems'])->name('all.foodItems');
 Route::get('/delete-food-items/{id}', [AdminController::class, 'deleteFoodItems'])->name('delete.foodItems');
 Route::get('/edit-fooditems/{id}', [AdminController::class, 'editFoodItems'])->name('edit.foodItems');
+Route::post('/update-fooditems/{id}', [AdminController::class, 'update_FoodItems'])->name('update.foodItems');
 
 
 

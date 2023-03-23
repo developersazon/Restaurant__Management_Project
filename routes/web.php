@@ -43,6 +43,9 @@ Route::post('/update-fooditems/{id}', [AdminController::class, 'update_FoodItems
 Route::get('/add-chef', [AdminController::class, 'addChefUser'])->name('add.Chef');
 Route::post('/add-chef', [AdminController::class, 'addNewChefs'])->name('add.NewChefs');
 
+// display chef users
+Route::get('/all-chefs', [AdminController::class, 'allChefUsers'])->name('all.Chefs');
+
 
 Route::middleware([
     'auth:sanctum',

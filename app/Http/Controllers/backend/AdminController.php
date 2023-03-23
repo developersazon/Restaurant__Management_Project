@@ -130,6 +130,13 @@ class AdminController extends Controller
     }
     // food items view and edit section end here
 
+    // all chefs users data start here
+    public function allChefUsers(){
+        $chefs_data = Chef::all();
+        return view('admin.chefUsers', compact('chefs_data'));
+    }
+    // all chefs users data end here
+
 
     // delete functions all start here
     public function deleteUsers($id){

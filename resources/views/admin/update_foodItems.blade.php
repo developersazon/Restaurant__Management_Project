@@ -62,7 +62,7 @@
 
                                     <!-- Submit button -->
                                     <div class="d-grid gap-2 d-md-block">
-                                        <button class="btn btn-success me-3" type="submit">Add Now</button>
+                                        <button class="btn btn-success me-3" type="submit">Save Changes</button>
                                         <a class="btn btn-danger" href="{{ route('all.foodItems') }}">Cancel</a>
                                     </div>
                                   </form>

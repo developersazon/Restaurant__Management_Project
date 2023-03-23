@@ -63,7 +63,7 @@
                                     <!-- Submit button -->
                                     <div class="d-grid gap-2 d-md-block">
                                         <button class="btn btn-success me-3" type="submit">Add Now</button>
-                                        <a class="btn btn-danger" href="">Cancel</a>
+                                        <a class="btn btn-danger" href="{{ route('all.Chefs') }}">Cancel</a>
                                     </div>
                                   </form>
                             </div>

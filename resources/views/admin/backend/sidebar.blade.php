@@ -108,7 +108,7 @@
           </a>
           <div class="collapse" id="auth2">
             <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="">
+                <li class="nav-item"> <a class="nav-link" href="{{ route('all.Chefs') }}">
                     <span class="menu-icon">
                           <i class="mdi mdi-food"></i>
                     </span>

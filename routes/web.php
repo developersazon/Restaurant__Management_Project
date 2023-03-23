@@ -16,11 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.home');
-});
 
-Route::get('/home', [HomeController::class, 'index']);
+// home page view route
+Route::get('/', [HomeController::class, 'index']);
 
 
 // admin view pages

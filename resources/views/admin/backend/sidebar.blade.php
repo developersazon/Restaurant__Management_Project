@@ -101,7 +101,7 @@
     <li class="nav-item menu-items">
         <a class="nav-link" data-bs-toggle="collapse" href="#auth2" aria-expanded="false" aria-controls="auth">
             <span class="menu-icon">
-              <i class="mdi mdi-playlist-play"></i>
+              <i class="mdi mdi-chef-hat"></i>
             </span>
             <span class="menu-title">Our Chefs</span>
             <i class="menu-arrow"></i>
@@ -110,13 +110,13 @@
             <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{ route('all.Chefs') }}">
                     <span class="menu-icon">
-                          <i class="mdi mdi-food"></i>
+                          <i class="mdi mdi-account-group"></i>
                     </span>
                     <span class="menu-title">All Chefs</span>
                     </a></li>
                <li class="nav-item"> <a class="nav-link" href="{{ route('add.Chef') }}">
                     <span class="menu-icon">
-                        <i class="mdi  mdi-format-list-bulleted"></i>
+                        <i class="mdi mdi-account-plus"></i>
                     </span>
                     <span class="menu-title">Add New Chef</span>
                </a></li>

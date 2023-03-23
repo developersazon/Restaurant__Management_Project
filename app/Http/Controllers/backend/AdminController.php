@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Chef;
 use App\Models\Food;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -27,12 +28,13 @@ class AdminController extends Controller
         return view('admin.users', compact('users_Data'));
     }
 
+    // all food menu add and items start here
     public function adminfoodItems(){
         $food_Items = Food::all();
         return view('admin.fooditems', compact('food_Items'));
     }
 
-    public function adminfoodMenu(){
+    public function addfoodMenu(){
         return view('admin.addfood');
     }
 
@@ -55,12 +57,45 @@ class AdminController extends Controller
         //
         $food_data->description = $request->description;
 
-        // dd($food_data);
         $food_data->save();
-        Session::flash('msg', 'Your Data Send Successfully');
+        Session::flash('msg', 'New Food Items added Successfully');
         return redirect()->back();
 
     }
+     // all food menu add and items end here
+
+
+    //  add chefs users start here
+    public function addChefUser(){
+        return view('admin.addchef');
+    }
+
+    public function addNewChefs(Request $request){
+        $request->validate([
+            'name' => 'required',
+            'designation' => 'required',
+            'image' => 'required|image|mimes:jpg,jpeg,png,gif,svg',
+            'description' => 'required',
+
+        ]);
+
+        $chef_data = new Chef();
+        $chef_data->name = $request->name;
+        $chef_data->designation = $request->designation;
+        //
+        $imageName = time(). "restaurant." .$request->file('image')->getClientOriginalExtension();
+        $chef_data->image =$imageName;
+        $request->file('image')->move(public_path('images'), $imageName);
+        //
+        $chef_data->description = $request->description;
+
+        // dd($food_data);
+        $chef_data->save();
+        Session::flash('msg', 'New Chef Information added Successfully');
+        return redirect()->back();
+
+    }
+    //  end chefs users end here
 
     // food items view and edit section start here
     public function editFoodItems($id){

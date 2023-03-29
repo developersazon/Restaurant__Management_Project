@@ -137,6 +137,40 @@ class AdminController extends Controller
     }
     // all chefs users data end here
 
+    // edit chef users data form view start here
+    public function editChefsUser($id) {
+        $edit_ChefData = Chef::find($id);
+        return view('admin.edit_ChefUsers', compact('edit_ChefData'));
+    }
+    // edit chef users data form view end here
+
+    //edit chef users data for update start here
+    public function updateChefsUser(Request $request, $id){
+        $request->validate([
+            'name' => 'required',
+            'designation' => 'required',
+            'image' => 'required|image|mimes:jpg,jpeg,png,gif,svg',
+            'description' => 'required',
+
+        ]);
+
+        $chef_data = Chef::find($id);
+        $chef_data->name = $request->name;
+        $chef_data->designation = $request->designation;
+        //
+        $imageName = time(). "restaurant." .$request->file('image')->getClientOriginalExtension();
+        $chef_data->image =$imageName;
+        $request->file('image')->move(public_path('images'), $imageName);
+        //
+        $chef_data->description = $request->description;
+
+        // dd($food_data);
+        $chef_data->save();
+        Session::flash('msg', 'Chefs data Successfully Updated');
+        return redirect()->back();
+    }
+    // edit chef users data for update end here
+
 
     // delete functions all start here
     public function deleteUsers($id){

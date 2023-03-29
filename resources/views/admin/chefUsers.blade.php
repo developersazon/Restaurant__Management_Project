@@ -132,7 +132,7 @@
                                             <td>{{ $chef_data->description }}</td>
                                             <td>{{ $chef_data->created_at }}</td>
                                             <td>
-                                                <a class="btn btn-success me-2" href="{{ route('edit.foodItems', ['id' => $chef_data->id]) }}">Edit</a>
+                                                <a class="btn btn-success me-2" href="{{ route('edit.ChefsUsers', ['id'=> $chef_data->id]) }}">Edit</a>
                                                 <a class="btn btn-danger" href="{{ route('delete.foodItems', ['id' => $chef_data->id]) }}" onclick="return confirm('Are you sure to delete this Food Items ?')">Delete</a>
                                             </td>
                                        </tr>

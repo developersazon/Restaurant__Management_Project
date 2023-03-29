@@ -189,7 +189,7 @@ class AdminController extends Controller
     // Admin logout form Dashboard
     public function adminLogout(Request $request){
         Auth::logout();
-        return redirect('/home');
+        return redirect('/');
     }
 
 }

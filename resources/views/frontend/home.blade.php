@@ -50,6 +50,8 @@
     </div>
     <!-- ***** Main Banner Area End ***** -->
 
+   {{--  <?php dd($chef);?>  --}}
+
     <!-- ***** About Area Starts ***** -->
     <section class="section" id="about">
         <div class="container">
@@ -136,40 +138,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4">
-                    <div class="chef-item">
-                        <div class="thumb">
-                            <div class="overlay"></div>
-                            <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            </ul>
-                            <img src="assets/images/chefs-01.jpg" alt="Chef #1">
-                        </div>
-                        <div class="down-content">
-                            <h4>Randy Walker</h4>
-                            <span>Pastry Chef</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="chef-item">
-                        <div class="thumb">
-                            <div class="overlay"></div>
-                            <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                            </ul>
-                            <img src="assets/images/chefs-02.jpg" alt="Chef #2">
-                        </div>
-                        <div class="down-content">
-                            <h4>David Martin</h4>
-                            <span>Cookie Chef</span>
-                        </div>
-                    </div>
-                </div>
+                @foreach ($chef_Items as $chef)
                 <div class="col-lg-4">
                     <div class="chef-item">
                         <div class="thumb">
@@ -179,14 +148,15 @@
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                                 <li><a href="#"><i class="fa fa-google"></i></a></li>
                             </ul>
-                            <img src="assets/images/chefs-03.jpg" alt="Chef #3">
+                            <img src="{{ url('images/'.$chef->image) }}" alt="Chef Image">
                         </div>
                         <div class="down-content">
-                            <h4>Peter Perkson</h4>
-                            <span>Pancake Chef</span>
+                            <h4>{{ $chef->name }}</h4>
+                            <span>{{ $chef->designation }}</span>
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
     </section>

@@ -42,6 +42,7 @@ class AdminController extends Controller
         $request->validate([
             'title' => 'required',
             'price' => 'required | numeric',
+            'category' => 'required',
             'image' => 'required|image|mimes:jpg,jpeg,png,gif,svg',
             'description' => 'required',
 
@@ -50,13 +51,14 @@ class AdminController extends Controller
         $food_data = new Food();
         $food_data->title = $request->title;
         $food_data->price = $request->price;
+        $food_data->category = $request->category;
         //
         $imageName = time(). "restaurant." .$request->file('image')->getClientOriginalExtension();
         $food_data->image =$imageName;
         $request->file('image')->move(public_path('images'), $imageName);
         //
         $food_data->description = $request->description;
-
+        //dd($food_data);
         $food_data->save();
         Session::flash('msg', 'New Food Items added Successfully');
         return redirect()->back();

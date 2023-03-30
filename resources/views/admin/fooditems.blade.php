@@ -108,15 +108,15 @@
                             @endif
 
                             {{--  new table start here  --}}
-                            <table class="table table-hover bg-dark">
+                            <table class="table table-hover">
                                 <thead>
                                   <tr>
                                     <th scope="col"><strong>Id</strong></th>
                                     <th scope="col"><strong>Title</strong></th>
+                                    <th scope="col"><strong>Category</strong></th>
                                     <th scope="col"><strong>Food Image</strong></th>
                                     <th scope="col"><strong>Food Price</strong></th>
                                     <th scope="col"><strong>Food Description</strong></th>
-                                    <th scope="col"><strong>History</strong></th>
                                     <th scope="col"><strong>Action</strong></th>
                                   </tr>
                                 </thead>
@@ -125,12 +125,12 @@
                                         <tr style="border-radius: 25px !important;">
                                             <td>{{ $food_Item->id }}</td>
                                             <td>{{ $food_Item->title }}</td>
+                                            <td>{{ $food_Item->category }}</td>
                                             <td>
                                                 <img style="width:45px;" src="{{ asset('images/' .$food_Item->image) }}" alt="food image">
                                             </td>
                                             <td>{{ $food_Item->price . " " ."TK" }}</td>
                                             <td>{{ $food_Item->description }}</td>
-                                            <td>{{ $food_Item->created_at }}</td>
                                             <td>
                                                 <a class="btn btn-success me-2" href="{{ route('edit.foodItems', ['id' => $food_Item->id]) }}">Edit</a>
                                                 <a class="btn btn-danger" href="{{ route('delete.foodItems', ['id' => $food_Item->id]) }}" onclick="return confirm('Are you sure to delete this Food Items ?')">Delete</a>
@@ -139,40 +139,6 @@
                                         @endforeach
                                 </tbody>
                               </table>
-                              {{--  New table end here  --}}
-
-
-                            {{--  <table class="table table-hover table-light">
-                                <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th><strong>Food Item Title</strong></th>
-                                        <th><strong>Food Image</strong></th>
-                                        <th><strong>Food Price</strong></th>
-                                        <th><strong>Food Description</strong></th>
-                                        <th><strong>History</strong></th>
-                                        <th><strong>Action</strong></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($food_Items as $food_Item)
-                                    <tr>
-                                        <td>{{ $food_Item->id }}</td>
-                                        <td>{{ $food_Item->title }}</td>
-                                        <td>
-                                            <img style="width:15%; height:100%;" src="{{ asset('images/' .$food_Item->image) }}" alt="food image">
-                                        </td>
-                                        <td>{{ $food_Item->price . " " ."TK" }}</td>
-                                        <td>{{ $food_Item->description }}</td>
-                                        <td>{{ $food_Item->created_at }}</td>
-                                        <td>
-                                            <a class="btn btn-success me-2" href="{{ route('edit.foodItems', ['id' => $food_Item->id]) }}">Edit</a>
-                                            <a class="btn btn-danger" href="{{ route('delete.foodItems', ['id' => $food_Item->id]) }}" onclick="return confirm('Are you sure to delete this Food Items ?')">Delete</a>
-                                        </td>
-                                   </tr>
-                                    @endforeach
-                                </tbody>
-                          </table>  --}}
                         </div>
                     </div>
                </div>

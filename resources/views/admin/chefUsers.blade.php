@@ -116,7 +116,6 @@
                                     <th scope="col"><strong>Chef Designation</strong></th>
                                     <th scope="col"><strong>Profile Image</strong></th>
                                     <th scope="col"><strong>Description</strong></th>
-                                    <th scope="col"><strong>History</strong></th>
                                     <th scope="col"><strong>Action</strong></th>
                                   </tr>
                                 </thead>
@@ -130,7 +129,6 @@
                                                 <img style="width:45px;" src="{{ asset('images/' .$chef_data->image) }}" alt="food image">
                                             </td>
                                             <td>{{ $chef_data->description }}</td>
-                                            <td>{{ $chef_data->created_at }}</td>
                                             <td>
                                                 <a class="btn btn-success me-2" href="{{ route('edit.ChefsUsers', ['id'=> $chef_data->id]) }}">Edit</a>
                                                 <a class="btn btn-danger" href="{{ route('delete.foodItems', ['id' => $chef_data->id]) }}" onclick="return confirm('Are you sure to delete this Food Items ?')">Delete</a>

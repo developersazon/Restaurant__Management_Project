@@ -30,7 +30,7 @@
                                        @enderror
                                       </div>
 
-                                      <div class="col col-sm-12 col-md-3">
+                                      <div class="col col-sm-12 col-md-6">
                                         <div class="form-outline">
                                             <label class="form-label" for="form3Example2">Price</label>
                                           <input type="text" name="price" value="{{ old('price') }}" id="form3Example2" class="form-control text-light" placeholder="price" />
@@ -39,17 +39,33 @@
                                         <span class="text-danger">{{ $message }}</span>
                                        @enderror
                                       </div>
-
-                                      <div class="col-sm-12 col-md-3">
-                                        <div class="form-outline">
-                                            <label class="form-label" for="form3Example2">image</label>
-                                          <input type="file" name="image" id="form3Example2" class="form-control" />
-                                        </div>
-                                        @error('image')
-                                           <span class="text-danger">{{ $message }}</span>
-                                       @enderror
-                                      </div>
                                     </div>
+
+                                    <div class="row mb-4">
+                                        <div class="col col-sm-12 col-md-6">
+                                          <div class="form-outline">
+                                                <label class="form-label" for="exampleFormControlSelect1">Please select this Food Item Category</label>
+                                                <select name='category' class="form-control text-light" id="exampleFormControlSelect1">
+                                                        <option value="Breakfast">Breakfast</option>
+                                                        <option value="Lunch">Lunch</option>
+                                                        <option value="Dinner">Dinner</option>
+                                                </select>
+                                          </div>
+                                          @error('price')
+                                          <span class="text-danger">{{ $message }}</span>
+                                         @enderror
+                                        </div>
+
+                                        <div class="col-sm-12 col-md-6">
+                                          <div class="form-outline">
+                                              <label class="form-label" for="form3Example2">image</label>
+                                            <input type="file" name="image" id="form3Example2" class="form-control" />
+                                          </div>
+                                          @error('image')
+                                             <span class="text-danger">{{ $message }}</span>
+                                         @enderror
+                                        </div>
+                                      </div>
 
                                     <!-- Message input -->
                                     <div class="form-outline mb-4">

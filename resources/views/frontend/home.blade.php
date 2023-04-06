@@ -117,6 +117,8 @@
                               </div>
                             </div>
                         </div>
+                        <input type="number" name="quantity" min="0" style="width: 80px;">
+                    <input type="submit" value="Add to Cart">
                     </div>
                     @endforeach
                     {{--  food items loop end here  --}}

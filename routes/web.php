@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 // home page view route
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/redirects', [AdminController::class, 'redirect']);
 
 
 // admin view pages

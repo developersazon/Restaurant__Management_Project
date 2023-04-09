@@ -14,13 +14,18 @@ class AdminController extends Controller
 {
     //
     public function adminDashboard(){
+        return view('admin.dashboard');
+    }
+
+    public function redirect(){
         $usertype  = Auth::user()->usertype;
         if($usertype == '1'){
             return view('admin.dashboard');
         }else{
-          return view('frontend.home');
+          return redirect('/');
         }
     }
+
 
     public function adminUsers(){
 

@@ -106,20 +106,23 @@
                 <div class="owl-menu-item owl-carousel">
                     {{--  food items loop start here  --}}
                     @foreach ($food_items as $food_menu)
-                    <div class="item">
-                        <div class='card' style="background-image: url('images/{{ $food_menu->image }}')">
-                            <div class="price"><h6>{{ $food_menu->price ." "."tk" }}</h6></div>
-                            <div class='info'>
-                              <h1 class='title'>{{ $food_menu->title }}</h1>
-                              <p class='description'>{{ $food_menu->description }}</p>
-                              <div class="main-text-button">
-                                  <div class="scroll-to-section"><a href="#reservation">Make Reservation <i class="fa fa-angle-down"></i></a></div>
-                              </div>
+                    <form action="{{ route('addCart', ['id'=>$food_menu->id])}}" method="POST">
+                        @csrf
+                        <div class="item">
+                            <div class='card' style="background-image: url('images/{{ $food_menu->image }}')">
+                                <div class="price"><h6>{{ $food_menu->price ." "."tk" }}</h6></div>
+                                <div class='info'>
+                                <h1 class='title'>{{ $food_menu->title }}</h1>
+                                <p class='description'>{{ $food_menu->description }}</p>
+                                <div class="main-text-button">
+                                    <div class="scroll-to-section"><a href="#reservation">Make Reservation <i class="fa fa-angle-down"></i></a></div>
+                                </div>
+                                </div>
                             </div>
+                            <input type="number" name="quantity" min="1" value="1"  style="width: 60px;">
+                            <input type="submit" value="Add to Cart">
                         </div>
-                        <input type="number" name="quantity" min="0" style="width: 80px;">
-                    <input type="submit" value="Add to Cart">
-                    </div>
+                    </form>
                     @endforeach
                     {{--  food items loop end here  --}}
                 </div>

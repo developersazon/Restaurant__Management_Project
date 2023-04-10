@@ -21,6 +21,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/redirects', [AdminController::class, 'redirect']);
 
+// Cart page view route here
+Route::post('/add-cart/{id}', [HomeController::class, 'addToCart'])->name('addCart');
+
 
 // admin view pages
 Route::get('/admin-dashboard', [AdminController::class, 'adminDashboard'])->name('admin.dashboard');

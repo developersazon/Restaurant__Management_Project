@@ -46,4 +46,12 @@ class HomeController extends Controller
         }
     }
 
+
+    // display cart product
+    public function showCart(){
+        $user_id = Auth::id();
+        $cart_data = Cart::where('user_id', $user_id)->count();
+        return view('frontend.showcart', compact('cart_data'));
+    }
+
 }

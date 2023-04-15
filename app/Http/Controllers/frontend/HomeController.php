@@ -59,8 +59,8 @@ class HomeController extends Controller
 
     // remove the cart products
     public function removeCart($id){
-        $cart_id = Cart::find($id);
-        $cart_id->delete();
+        $delete_cart = Cart::find($id);
+        $delete_cart->delete();
         return redirect()->back();
     }
 

@@ -24,6 +24,7 @@ Route::get('/redirects', [AdminController::class, 'redirect']);
 // Cart page view route here
 Route::post('/add-cart/{id}', [HomeController::class, 'addToCart'])->name('addCart');
 Route::get('/show-cart/{id}', [HomeController::class, 'showCart'])->name('show.Cart');
+Route::get('/add-cart/{id}', [HomeController::class, 'removeCart'])->name('remove.cartData');
 
 
 // admin view pages

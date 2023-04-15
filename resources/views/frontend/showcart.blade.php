@@ -60,25 +60,8 @@ https://templatemo.com/tm-558-klassy-cafe
                               <li class="scroll-to-section"><a href="{{ url('/home') }}" class="active">Home</a></li>
                             <li class="scroll-to-section"><a href="#about">About</a></li>
 
-                        <!--
-                            <li class="submenu">
-                                <a href="javascript:;">Drop Down</a>
-                                <ul>
-                                    <li><a href="#">Drop Down Page 1</a></li>
-                                    <li><a href="#">Drop Down Page 2</a></li>
-                                    <li><a href="#">Drop Down Page 3</a></li>
-                                </ul>
-                            </li>
-                        -->
                             <li class="scroll-to-section"><a href="#menu">Menu</a></li>
                             <li class="scroll-to-section"><a href="#chefs">Chefs</a></li>
-                            <li class="submenu">
-                                <a href="javascript:;">Features</a>
-                                <ul>
-                                    <li><a href="#">Features Page 1</a></li>
-                                    <li><a href="#">Features Page 2</a></li>
-                                </ul>
-                            </li>
                             <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> -->
                             <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li>
                             <li class="scroll-to-section">
@@ -130,23 +113,28 @@ https://templatemo.com/tm-558-klassy-cafe
                                <table class="table table-hover table-striped">
                                 <thead>
                                   <tr>
-                                    <th scope="col">Cart Items</th>
-                                    <th scope="col">Item Name</th>
-                                    <th scope="col">Item Price</th>
+                                    <th scope="col">Food Name</th>
+                                    <th scope="col">Price</th>
                                     <th scope="col">Quantity</th>
+                                    <th scope="col">Taka</th>
                                     <th scope="col">Action</th>
                                   </tr>
                                 </thead>
                                 <tbody>
-                                  <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>1000 Tk</td>
-                                    <td>Dhaka</td>
-                                    <td>
-                                        <a href="" class="btn btn-sm btn-danger">Remove</a>
-                                    </td>
-                                  </tr>
+                                  <?php $total = 0; ?>
+                                  @foreach ($display_cart_data as $item)
+                                        <tr>
+                                            <th scope="row">{{ $item->title }}</th>
+                                            <td> {{ $item->price }}</td>
+                                            <td>{{ $item->quantity }}</td>
+                                            <td>{{ '= ' . $item->price * $item->quantity .' Tk'}}</td>
+                                            <td>
+                                                <a href="{{ route('remove.cartData', ['id'=> $item->id]) }}" class="btn btn-sm btn-danger">Remove</a>
+                                            </td>
+                                            <?php $total += $item->price * $item->quantity; ?>
+                                        </tr>
+
+                                  @endforeach
                                 </tbody>
                               </table>
                                {{--  table section end here  --}}
@@ -159,7 +147,7 @@ https://templatemo.com/tm-558-klassy-cafe
                                 <h4>Total Price</h4>
                             </div>
                             <div class="card-body">
-                                <p>1000 TK</p>
+                                <h3>{{'= ' . $total . ' TK'; }}</h3>
                                 <button type="submit" class="mt-5 btn btn-success btn-sm">Checkout Now</button>
                             </div>
                         </div>

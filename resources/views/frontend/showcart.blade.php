@@ -122,12 +122,16 @@ https://templatemo.com/tm-558-klassy-cafe
                                             <td> {{ $item->price }}</td>
                                             <td>{{ $item->quantity }}</td>
                                             <td>{{ '= ' . $item->price * $item->quantity .' Tk'}}</td>
-                                            <td>
-                                                <a href="{{ route('remove.cartData', ['id'=> $item->id]) }}" class="btn btn-sm btn-danger">Remove</a>
-                                            </td>
                                             <?php $total += $item->price * $item->quantity; ?>
-                                        </tr>
+                                        
+                                  @endforeach
 
+                                  @foreach ($find_delete_data as $delete_item)
+
+                                        <td>
+                                            <a href="{{ route('remove.cartData', ['id'=> $delete_item->id]) }}" class="btn btn-sm btn-danger">Remove</a>
+                                        </td>
+                                    </tr>
                                   @endforeach
                                 </tbody>
                               </table>

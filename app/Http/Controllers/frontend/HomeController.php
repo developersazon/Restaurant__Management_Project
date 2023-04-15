@@ -52,8 +52,9 @@ class HomeController extends Controller
     public function showCart(Request $request, $id){
 
         $cart_data = Cart::where('user_id', $id)->count();
+        $find_delete_data = Cart::select('*')->where('user_id', '=', $id)->get();
         $display_cart_data = Cart::where('user_id', $id)->join('food', 'carts.food_id', '=', 'food.id')->get();
-        return view('frontend.showcart', compact('cart_data', 'display_cart_data'));
+        return view('frontend.showcart', compact('cart_data', 'display_cart_data', 'find_delete_data'));
     }
 
 
